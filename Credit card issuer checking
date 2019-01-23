@@ -1,0 +1,24 @@
+def get_issuer(number):
+    s = str(number)
+    if s.startswith('34') or s.startswith('37'):
+        if len(s) == 15:
+            return ('AMEX')
+        else:
+            return ('Unknown')
+    elif s.startswith('6011'):
+        if len(s) == 16:
+            return ('Discover')
+        else:
+            return ('Unknown')
+    elif s.startswith('51') or s.startswith('52') or s.startswith('53') or s.startswith('54') or s.startswith('55'):
+        if len(s) == 16:
+            return ('Mastercard')
+        else:
+            return ('Unknown')
+    elif s.startswith('4'):
+        if len(s) == 16 or len(s) == 13:
+            return ('VISA')
+        else:
+            return ('Unknown')
+    else:
+        return ('Unknown')
