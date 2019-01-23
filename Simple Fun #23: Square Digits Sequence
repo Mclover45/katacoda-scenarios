@@ -1,0 +1,23 @@
+def ink(n, sum1):
+    sum1.append(n)
+    l = sum_of_elements(n)
+    if l in sum1:
+        sum1.append(l)
+        return sum1
+    else:
+        ink(l, sum1)
+    return (sum1)
+
+def square_digits_sequence(n):
+    sum1 = []
+    ink(n, sum1)
+    return len(sum1)
+
+
+
+def sum_of_elements(n):
+
+        b = list(str(n))
+        b2 = [int(i) ** 2 for i in b]
+        b3 = sum(b2)
+        return (b3)
