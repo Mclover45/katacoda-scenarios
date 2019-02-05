@@ -1,0 +1,16 @@
+def parse(data):
+    somenumber = 0
+    somenumber_s = []
+    string1 = list(data)
+    for number in string1:
+        if number == "i":
+            somenumber = somenumber + 1
+        elif number == "o":
+           somenumber_s.append(somenumber)
+        elif number == "s":
+            somenumber = somenumber**2
+        elif number == "d":
+            somenumber = somenumber - 1
+        else:
+            continue
+    return somenumber_s
