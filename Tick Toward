@@ -1,0 +1,61 @@
+def tick_toward(start, target):
+    result_of_fuctions = []
+    result_of_fuctions.append(start)
+    range_of_elements(start, target, result_of_fuctions)
+    return result_of_fuctions
+
+
+def range_of_elements(start, target, result_of_fuctions):
+    start = list(start)
+    target = list(target)
+    if start[0] < target[0] and start[1] < target[1]:
+        start[0] = start[0] + 1
+        start[1] = start[1] + 1
+        start = tuple(start)
+        result_of_fuctions.append(start)
+        range_of_elements(start, target, result_of_fuctions)
+    elif start[0] > target[0] and start[1] > target[1]:
+        start[0] = start[0] - 1
+        start[1] = start[1] - 1
+        start = tuple(start)
+        result_of_fuctions.append(start)
+        range_of_elements(start, target, result_of_fuctions)
+    elif start[0] > target[0] and start[1] < target[1]:
+        start[0] = start[0] - 1
+        start[1] = start[1] + 1
+        start = tuple(start)
+        result_of_fuctions.append(start)
+        range_of_elements(start, target, result_of_fuctions)
+    elif start[0] < target[0] and start[1] > target[1]:
+        start[0] = start[0] + 1
+        start[1] = start[1] - 1
+        start = tuple(start)
+        result_of_fuctions.append(start)
+        range_of_elements(start, target, result_of_fuctions)
+    elif start[0] != target[0]:
+        if start[0] < target[0]:
+            start[0] = start[0] + 1
+            start = tuple(start)
+            result_of_fuctions.append(start)
+            range_of_elements(start, target, result_of_fuctions)
+        elif start[0] > target[0]:
+            start[0] = start[0] - 1
+            start = tuple(start)
+            result_of_fuctions.append(start)
+            range_of_elements(start, target, result_of_fuctions)
+    elif start[1] != target[1]:
+        if start[1] < target[1]:
+            start[1] = start[1] + 1
+            start = tuple(start)
+            result_of_fuctions.append(start)
+            range_of_elements(start, target, result_of_fuctions)
+        elif start[1] > target[1]:
+            start[1] = start[1] - 1
+            start = tuple(start)
+            result_of_fuctions.append(start)
+            range_of_elements(start, target, result_of_fuctions)
+    else:
+        return result_of_fuctions
+
+
+tick_toward((3,2), (4,5))
